@@ -1,0 +1,53 @@
+{
+  "name": "the-plain-gatsby-starter",
+  "private": true,
+  "description": "A simple minimalist starter for your personal blog",
+  "version": "0.1.0",
+  "author": "Kinyanjui Wangonya <kwangonya@gmail.com>",
+  "dependencies": {
+    "gatsby": "^2.5.7",
+    "gatsby-image": "^2.1.0",
+    "gatsby-plugin-feed": "^2.2.1",
+    "gatsby-plugin-manifest": "^2.1.1",
+    "gatsby-plugin-offline": "^2.1.1",
+    "gatsby-plugin-react-helmet": "^3.0.12",
+    "gatsby-plugin-sass": "^2.0.11",
+    "gatsby-plugin-sharp": "^2.0.37",
+    "gatsby-remark-prismjs": "^3.2.9",
+    "gatsby-source-filesystem": "^2.0.37",
+    "gatsby-transformer-remark": "^2.3.12",
+    "gatsby-transformer-sharp": "^2.1.19",
+    "node-sass": "^4.12.0",
+    "prismjs": "^1.16.0",
+    "prop-types": "^15.7.2",
+    "react": "^16.8.6",
+    "react-dom": "^16.8.6",
+    "react-helmet": "^5.2.1"
+  },
+  "devDependencies": {
+    "eslint": "^5.16.0",
+    "eslint-plugin-react": "^7.13.0",
+    "prettier": "^1.17.1"
+  },
+  "keywords": [
+    "gatsby",
+    "minimal",
+    "minimalist"
+  ],
+  "license": "MIT",
+  "scripts": {
+    "build": "gatsby build",
+    "develop": "gatsby develop",
+    "format": "prettier --write src/**/*.{js,jsx}",
+    "start": "npm run develop",
+    "serve": "gatsby serve",
+    "test": "echo \"Write tests! -> https://gatsby.dev/unit-testing\""
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/wangonya/the-plain-gatsby"
+  },
+  "bugs": {
+    "url": "https://github.com/wangonya/the-plain-gatsby/issues"
+  }
+}
