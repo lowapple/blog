@@ -9,7 +9,7 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
-import Header from ".././components/header"
+import Header from ".././components/organisms/Header"
 import Footer from ".././components/footer"
 import "../styles/styles.scss"
 
@@ -27,7 +27,7 @@ const DefaultLayout = ({ children }) => (
     `}
     render={data => (
       <>
-        <Header avatar={data.site.siteMetadata.avatar} />
+        <Header data={data}/>
         <div id="content">{children}</div>
         <Footer siteTitle={data.site.siteMetadata.title} />
       </>
