@@ -1,27 +1,16 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import { Location } from "@reach/router"
-import Profile from "./Profile"
+import Logo from './molecules/Logo'
 
 const Header = ({ avatar }) => (
   <header className="logo">
     <Location>
       {({ location }) => {
         return location.pathname == "/" ? (
-          <div>
-            <Link to="/about/">
-              <Profile image={avatar} />
-            </Link>
-            <span className="logo-prompt code">Back Home</span>
-          </div>
+          <Logo link={'/about/'} avatar={avatar} description={"About"} />
         ) : (
-          <div>
-            <Link to="/">
-              <Profile image={avatar} />
-            </Link>
-            <span className="logo-prompt code">Back Home</span>
-          </div>
+          <Logo link={'/'} avatar={avatar} description={'홈으로 돌아가기'} />
         )
       }}
     </Location>

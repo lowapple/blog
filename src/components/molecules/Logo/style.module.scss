@@ -1,0 +1,30 @@
+.default {
+    a {
+        &:hover {
+            & + .prompt {
+                display: inline-block !important;
+            }
+        }
+        @media (max-width : 480px) {
+            &:hover + .prompt,
+            &:focus + .prompt {
+              display: none !important;
+            }
+        }
+    }
+
+    .prompt {
+        display: none;
+        &:before {
+            content: "";
+            border-width: 5px 5px 5px 0;
+            border-style: solid;
+            border-color: transparent #666;
+            border-color: transparent rgba(0,0,0,.5);
+            position: absolute;
+            top: 50%;
+            left: -5px;
+            margin-top: -5px;
+        }
+    }
+}

@@ -1,10 +1,10 @@
-import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styles from './style.module.scss'
+import classNames from 'classnames'
 
 const Profile = ({ image }) => {
-    return <img src={image} className={styles['profile']}/>
+    return <img src={image} className={classNames(styles['default'])}/>
 }
 
 Profile.propTypes = {
