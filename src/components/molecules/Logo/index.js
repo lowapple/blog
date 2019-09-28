@@ -14,4 +14,16 @@ const Logo = ({ link, avatar, description }) => {
     </div>
 }
 
+Prompt.propTypes = {
+    link: PropTypes.string,
+    avatar: PropTypes.string,
+    description: PropTypes.string,
+}
+  
+Prompt.defaultProps = {
+    link: '/',
+    avatar: ``,
+    description: ``,
+}
+
 export default Logo
