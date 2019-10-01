@@ -8,6 +8,9 @@
     -webkit-animation-duration: 0.7s;
     -webkit-animation-fill-mode: both;
     -webkit-animation-name: bounce;
+    width: 700px;
+    display: flex;
+    justify-content: left;
     a {
         background: #ddd url('../../../images/logo_wrapper.png');
         color: #000;
