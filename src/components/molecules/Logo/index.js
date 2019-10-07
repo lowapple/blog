@@ -9,14 +9,8 @@ import AuthorName from '../../atoms/AuthorName'
 
 const Logo = ({ link, avatar, description }) => {
     return <div className={styles['default']}>
-        <Link to={link}>
-            <Profile image={avatar} />
-        </Link>
-        <div className={styles['info']}>
-            <AuthorName text={"Lowapples'Blog"} />
-            <AuthorBio text={'기술 블로그?'} />
-        </div>
-        <Prompt className={styles['prompt']} description={description}/>
+        <AuthorName text={"Lowapple's 블로그"} />
+        <AuthorBio text={'기타등등 이것저것 여러가지'} />
     </div>
 }
 

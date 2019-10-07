@@ -3,9 +3,9 @@ import PropTypes from "prop-types"
 import React from "react"
 import styles from './style.module.scss'
 
-const AuthorName = ({text}) => {
+const AuthorName = ({text, link}) => {
     return <div className={styles['default']}>
-        {text}
+        <Link to={link}>{text}</Link>
     </div>
 }
 

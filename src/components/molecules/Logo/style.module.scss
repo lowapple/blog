@@ -1,8 +1,6 @@
 .default {
     max-width: 700px;
     text-align: center;
-    display: flex;
-    flex-direction: row;
     a {
         &:hover {
             & + .prompt {
