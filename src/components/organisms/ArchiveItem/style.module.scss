@@ -1,0 +1,19 @@
+.default {
+    font-family: "Spoqa Han Sans", "Spoqa Han Sans JP", "Helvetica Neue", Helvetica, Arial, sans-serif;
+    transition: 0.3s ease-out;
+    font-size: 120%;
+    padding: 4px 20px;
+    span {
+        margin-right: 10px;
+    }
+}
+
+.default:hover {
+
+        transform: translateX(3px);
+        span {
+            a {
+                color: #1094e8;
+            }
+        }
+}

@@ -4,8 +4,8 @@ import { Link, graphql } from "gatsby"
 import DefaultLayout from "../layouts/default"
 import Image from "../components/image"
 import SEO from "../components/seo"
-
-import { groupBy, getDateYear } from "../utils"
+import ArchiveItem from '../components/organisms/ArchiveItem'
+import { groupBy, getDateYear, getArchivePostDate } from "../utils"
 
 const IndexPage = ({ data }) => {
   // all posts without dates are assumed to be drafts or pages
@@ -15,14 +15,7 @@ const IndexPage = ({ data }) => {
   )
   const postsList = posts =>
     posts.map(post => (
-      <li key={post.node.id}>
-        <div className="post-date code">
-          <small>{post.node.frontmatter.date}</small>
-        </div>
-        <div className="title">
-          <Link to={post.node.fields.slug}>{post.node.frontmatter.title}</Link>
-        </div>
-      </li>
+      <ArchiveItem post={post} />
     ))
 
   const postsListContainer = groupBy(posts, getDateYear)
@@ -55,7 +48,7 @@ export const pageQuery = graphql`
             slug
           }
           frontmatter {
-            date(formatString: "MMMM DD, YY")
+            date
             title
           }
         }

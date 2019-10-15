@@ -18,3 +18,10 @@ export const groupBy = (items, fn) =>
 
 export const getDateYear = ({ node }) =>
   new Date(node.frontmatter.date).getFullYear()
+
+export const getArchivePostDate = ({ node }) => {
+  var fromDate = new Date(node.frontmatter.date)
+  var postMonth = ("0" + (fromDate.getMonth() + 1)).slice(-2)
+  var postDate = ("0" + fromDate.getDate()).slice(-2)
+  return postMonth + '-' +  postDate
+}
