@@ -16,10 +16,10 @@ Only fullscreen opaque activities can request orientation
 이 문제는 Android 8.0 으로 업데이트 시 발생한다.
 ```xml
 <style name="Theme.Transparent" parent="Theme.AppCompat.Light.NoActionBar">
-    ...
     <item name="android:windowIsTranslucent">true</item>
 </style>
 ```
+
 화면 스타일 중 windowsIsTranslucent가 true일 때
 
 ```xml
