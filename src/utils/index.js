@@ -25,3 +25,11 @@ export const getArchivePostDate = ({ node }) => {
   var postDate = ("0" + fromDate.getDate()).slice(-2)
   return postMonth + '-' +  postDate
 }
+
+export const getPostDate = ({ date }) => {
+  var d = new Date(date)
+  var postYear = d.getFullYear()
+  var postMonth = ("0" + (d.getMonth() + 1)).slice(-2)
+  var postDate = ("0" + d.getDate()).slice(-2)
+  return postYear + '년 ' + postMonth + '월 ' +  postDate + '일'
+}

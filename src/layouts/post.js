@@ -3,11 +3,15 @@ import { Link, graphql } from "gatsby"
 
 import DefaultLayout from "../layouts/default"
 import SEO from "../components/seo"
+import { getPostDate } from '../utils'
 
 const PostTemplate = ({ data, pageContext }) => {
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   const { next, prev } = pageContext
+
+  console.log(frontmatter)
+
   return (
     <DefaultLayout>
       <SEO title={frontmatter.title} />
@@ -15,7 +19,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <div className="center">
           <h1 className="title">{frontmatter.title}</h1>
           <span className="code">
-            <small>{frontmatter.date}</small>
+            <small className="time">{getPostDate(frontmatter)}</small>
           </span>
         </div>
         <div className="divider" />
