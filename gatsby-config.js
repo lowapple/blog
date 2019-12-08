@@ -29,6 +29,16 @@ module.exports = {
         // Plugins configs
         plugins: [
           {
+            resolve: 'gatsby-remark-emoji', // <-- this adds emoji
+            options: {
+              // default emojiConversion --> shortnameToUnicode
+              emojiConversion: 'shortnameToUnicode',
+              // when true, matches ASCII characters (in unicodeToImage and shortnameToImage)
+              // e.g. ;) --> 😉
+              ascii: false,
+            }
+          },
+          {
             resolve: `gatsby-remark-embed-snippet`,
             options: {
               directory: `${__dirname}/src/snippets/`,
@@ -66,25 +76,6 @@ module.exports = {
         ],
       },
     },
-    /*
-     {
-      resolve: `gatsby-transformer-remark`,
-      options: {
-        plugins: [
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: "language-",
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-            },
-          },
-        ],
-      },
-    },
-     */
     `gatsby-plugin-react-helmet`,
     {
       resolve: `gatsby-source-filesystem`,

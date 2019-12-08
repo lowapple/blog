@@ -6,6 +6,7 @@ import SEO from "../components/seo"
 import { getPostDate } from '../utils'
 
 const PostTemplate = ({ data, pageContext }) => {
+  console.log(data)
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   const { next, prev } = pageContext

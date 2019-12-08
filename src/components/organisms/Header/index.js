@@ -10,9 +10,9 @@ const Header = ({ data }) => (
     <Location>
       {({ location }) => {
         return location.pathname == "/" ? (
-          <Logo link={'/about/'} avatar={data.site.siteMetadata.avatar} description={"About"} />
+          <Logo link={'/about/'} />
         ) : (
-          <Logo link={'/'} avatar={data.site.siteMetadata.avatar} description={'홈으로 돌아가기'} />
+          <Logo link={'/'} />
         )
       }}
     </Location>
