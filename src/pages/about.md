@@ -1,8 +1,9 @@
 ---
 title: About
 ---
-Hello.
 
-This will be your About page. Anything about you, it should be written here in details. You may describe your bio here like who you are, what you do, your intention, social site hyperlinks and how people can contact you, etc.
+Hello, World!
 
-**Less is more..**
+안녕하세요. 현재 엘핀에서 안드로이드 개발자로 근무중인 윤준서 입니다!
+
+이 블로그는 개발 블로그 목적으로 개설했지만 개발에 집중된 이야기 보다는 회사 이야기나 개인 프로젝트를 진행하면서 겪었던 일과 함께 소개해 드리고자 합니다 :)

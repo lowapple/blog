@@ -7,15 +7,7 @@ import classNames from 'classnames'
 
 const Header = ({ data }) => (
   <header className={styles['default']}>
-    <Location>
-      {({ location }) => {
-        return location.pathname == "/" ? (
-          <Logo link={'/about/'} />
-        ) : (
-          <Logo link={'/'} />
-        )
-      }}
-    </Location>
+    <Logo link={'/'} />
   </header>
 )
 
