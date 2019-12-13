@@ -134,6 +134,10 @@ sup {
 time {
   color: #555;
 }
+.post-tags {
+  margin-top: 8px;
+}
+
 code,
 pre,
 .code,
@@ -382,8 +386,6 @@ article {
   text-align: left;
   
 section {
-  padding-left: 8px;
-  padding-right: 8px;
   margin: 0 auto 50px auto;
   ul {
     list-style: none;

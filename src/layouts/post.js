@@ -4,14 +4,12 @@ import { Link, graphql } from "gatsby"
 import DefaultLayout from "../layouts/default"
 import SEO from "../components/seo"
 import { getPostDate } from '../utils'
+import PostTags from "../components/organisms/PostTags"
 
 const PostTemplate = ({ data, pageContext }) => {
-  console.log(data)
   const { markdownRemark } = data
   const { frontmatter, html } = markdownRemark
   const { next, prev } = pageContext
-
-  console.log(frontmatter)
 
   return (
     <DefaultLayout>
@@ -26,6 +24,7 @@ const PostTemplate = ({ data, pageContext }) => {
         <div className="divider" />
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </article>
+      <PostTags tags={frontmatter.tags}/>
       <div className="page-navigation code">
         {prev && (
           <Link
@@ -65,6 +64,7 @@ export const pageQuery = graphql`
       frontmatter {
         date
         title
+        tags
       }
     }
   }

@@ -9,10 +9,9 @@ import { groupBy, getDateYear, getArchivePostDate } from "../utils"
 import PageHeader from '../components/organisms/PageHeader';
 
 const IndexPage = ({ data }) => {
-    // all posts without dates are assumed to be drafts or pages
-    // not to be added to postsList
+    // 포스트 리스트 필터
     const posts = data.allMarkdownRemark.edges.filter(
-      p => p.node.frontmatter.date !== null
+      p => p.node.frontmatter.date !== null && p.node.frontmatter.type === "archive"
     )
     // PostElement 리스트 생성 
     const postsList = posts =>
@@ -24,7 +23,7 @@ const IndexPage = ({ data }) => {
     const postsListContainer = groupBy(posts, getDateYear)
       .map(({ year, posts }, i) => (
         <div key={i}>
-          <h4 className="code">{year}</h4>
+          <p><b>{year}</b> 년 포스트</p>
           {postsList(posts)}
         </div>
       )).reverse()
@@ -33,7 +32,7 @@ const IndexPage = ({ data }) => {
     return (
       <DefaultLayout>
         <SEO title="Home" />
-        <PageHeader title={"홈"} description={"asdf"}/>
+        <PageHeader title={"로우애플 기술 블로그"} description={"기타등등 이것저것 여러가지"}/>
         <section>
           <ul>{postsListContainer}</ul>
         </section>
@@ -57,6 +56,7 @@ export const pageQuery = graphql`
             title
             tags
             description
+            type
           }
         }
       }
