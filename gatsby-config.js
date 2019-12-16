@@ -1,10 +1,10 @@
 module.exports = {
   siteMetadata: {
-    title: `The Plain Gatsby`,
-    description: `A simple minimalist starter for your personal blog.`,
-    author: `@wangonya`,
+    title: `Lowapple Tech`,
+    description: `기타등등 이것저것 기술 블로그`,
+    author: `@lowapple`,
     avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
-    siteUrl: `https://the-plain-gatsby.netlify.com`,
+    siteUrl: `https://lowapple.github.io`,
   },
   plugins: [
     {
@@ -29,6 +29,12 @@ module.exports = {
         // Plugins configs
         plugins: [
           {
+            resolve: "gatsby-remark-embed-gist"
+          },
+          {
+            resolve: `gatsby-remark-prismjs`,
+          },
+          {
             resolve: 'gatsby-remark-emoji', // <-- this adds emoji
             options: {
               // default emojiConversion --> shortnameToUnicode
@@ -37,36 +43,7 @@ module.exports = {
               // e.g. ;) --> 😉
               ascii: false,
             }
-          },
-          {
-            resolve: `gatsby-remark-prismjs`,
-            options: {
-              classPrefix: "language-",
-              inlineCodeMarker: null,
-              aliases: {},
-              showLineNumbers: false,
-              noInlineHighlight: false,
-              languageExtensions: [
-                {
-                  language: "superscript",
-                  extend: "javascript",
-                  definition: {
-                    superscript_types: /(SuperType)/,
-                  },
-                  insertBefore: {
-                    function: {
-                      superscript_keywords: /(superif|superelse)/,
-                    },
-                  },
-                },
-              ],
-              prompt: {
-                user: "root",
-                host: "localhost",
-                global: false,
-              },
-            },
-          },
+          }
         ],
       },
     },

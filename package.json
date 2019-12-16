@@ -15,6 +15,7 @@
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.37",
     "gatsby-plugin-web-font-loader": "^1.0.4",
+    "gatsby-remark-embed-gist": "^1.1.9",
     "gatsby-remark-embed-snippet": "^4.1.14",
     "gatsby-remark-emoji": "^0.0.3",
     "gatsby-remark-prismjs": "^3.3.22",
