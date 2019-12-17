@@ -2,7 +2,8 @@
 type: archive
 title: Android Point Line 그리기
 date: 2018-04-06
-tags: [Android]
+tags: ['Android']
+description: Xml을 이용하여 Android Point Line 그리기 
 ---
 
 ## 문제 발생

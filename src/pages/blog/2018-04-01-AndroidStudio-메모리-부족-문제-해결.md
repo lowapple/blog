@@ -2,7 +2,7 @@
 type: archive
 title: Android Studio 메모리 부족 문제 해결
 date: 2018-04-01
-tags: [AndroidStudio, Tip]
+tags: ['AndroidStudio', 'Tip']
 description: Android Studio 가 뭐만 하면 끊겨서 짜증날 때!
 ---
 

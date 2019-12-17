@@ -2,7 +2,7 @@
 type: archive
 title: GooglePlay 앱 서명 (Key Hash)가져오기
 date: 2018-04-06
-tags: [Tip]
+tags: ['Tip']
 description: 잘되던 Facebook 로그인이 GooglePlay에 올린뒤 작동이 안된다!
 ---
 

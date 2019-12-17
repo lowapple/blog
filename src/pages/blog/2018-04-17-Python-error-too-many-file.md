@@ -2,7 +2,7 @@
 type: archive
 title: Python 에러 - too many file descriptors in select 해결하기
 date: 2018-04-17
-tags: [Python]
+tags: ['Python']
 description: 
 ---
 

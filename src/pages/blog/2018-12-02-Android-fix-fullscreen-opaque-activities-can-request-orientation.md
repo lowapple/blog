@@ -2,8 +2,8 @@
 type: archive
 title: Android 8.0 Only fullscreen opaque activities can request orientation 에러 수정하기
 date: 2018-12-02
-tags: [Android]
-description: 
+tags: ['Android']
+description: Android 8.0 Only fullscreen opaque activities can request orientation 에러 수정
 ---
 
 화면 잠금 어플리케이션을 제작 할 때 발생한 문제
