@@ -4,7 +4,7 @@ module.exports = {
     description: `기타등등 이것저것 기술 블로그`,
     author: `@lowapple`,
     avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
-    siteUrl: `https://lowapple.github.io`,
+    siteUrl: `https://lowapple.io`,
   },
   plugins: [
     {
@@ -55,6 +55,7 @@ module.exports = {
         path: `${__dirname}/src/images`,
       },
     },
+    `gatsby-plugin-sitemap`,
     `gatsby-plugin-netlify`,
     `gatsby-transformer-sharp`,
     `gatsby-plugin-feed`,
