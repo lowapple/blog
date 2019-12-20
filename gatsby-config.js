@@ -1,3 +1,5 @@
+require('dotenv').config()
+
 module.exports = {
   siteMetadata: {
     title: `Lowapple Tech`,
@@ -7,6 +9,13 @@ module.exports = {
     siteUrl: `https://lowapple.io`,
   },
   plugins: [
+    {
+      resolve: `gatsby-source-contentful`,
+      options: {
+        spaceId: process.env.CONTENTFUL_SPACE_ID,
+        accessToken: process.env.CONTENTFUL_ACCESS_TOKEN,
+      },
+    },
     {
       resolve: 'gatsby-plugin-web-font-loader',
       options: {
@@ -63,7 +72,7 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
-        name: `markdown-pages`,
+        name: `pages`,
         path: `${__dirname}/src/pages/`,
       },
     },

@@ -1,13 +1,26 @@
 import React from "react"
-import { Link, graphql } from "gatsby"
+import { Link, graphql, StaticQuery } from "gatsby"
 
-import DefaultLayout from "../layouts/default"
 import Image from "../components/image"
 import SEO from "../components/seo"
 import PostElement from '../components/organisms/PostElement'
 import { groupBy, getDateYear, getArchivePostDate } from "../utils"
 import PageHeader from '../components/organisms/PageHeader';
+import Layout from '../components/Layout' 
 
+const IndexPage = ({ data, pageContext }) => {
+  console.log(pageContext.group)
+  return (
+  <Layout>
+    <SEO title="Home"/>
+
+  </Layout>
+  )
+}
+
+export default IndexPage
+
+/*
 const IndexPage = ({ data }) => {
     // 포스트 리스트 필터
     const posts = data.allMarkdownRemark.edges.filter(
@@ -63,3 +76,4 @@ export const pageQuery = graphql`
     }
   }
 `
+*/
