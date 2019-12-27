@@ -7,13 +7,78 @@ import PostElement from '../components/organisms/PostElement'
 import { groupBy, getDateYear, getArchivePostDate } from "../utils"
 import PageHeader from '../components/organisms/PageHeader';
 import Layout from '../components/Layout' 
+import ReactPaginate from 'react-paginate'
+import { navigateTo } from 'gatsby-link'
+import Pagenation from '../components/Pagenation'
 
+// 페이지 이동
+const handlePageClick = data => {
+  let { selected } = data
+  selected = selected === 0 ? '' : selected + 1
+  navigateTo(`/${selected}`)
+}
+
+// 인덱스 페이지 렌더링
 const IndexPage = ({ data, pageContext }) => {
-  console.log(pageContext.group)
+  return (
+    <StaticQuery
+        query={graphql`
+        query Header {
+            site {
+            siteMetadata {
+              title
+              description
+            }
+          }
+        }
+        `}
+        render={sitemap => (
+        <Layout>
+          <SEO title="Home"/>
+          <PageHeader 
+            title={sitemap.data.site.siteMetadata.title} 
+            description={sitemap.data.site.siteMetadata.description}/>
+          <Pagenation>
+            <ReactPaginate
+              previousLabel={<i className="fas fa-angle-left" />}
+              nextLabel={<i className="fas fa-angle-right" />}
+              breakLabel={<i className="fa fa-ellipsis-h" />}
+              forcePage={pageContext.index - 1}
+              breakClassName={'break-me'}
+              pageCount={pageContext.pageCount}
+              marginPagesDisplayed={2}
+              pageRangeDisplayed={5}
+              onPageChange={handlePageClick}
+              containerClassName={'pagination'}
+              subContainerClassName={'pages pagination'}
+              activeClassName={'active'}
+            />
+          </Pagenation>
+        </Layout>
+        )}
+    />
+  )
+
   return (
   <Layout>
     <SEO title="Home"/>
-
+    <PageHeader title={"로우애플 기술 블로그"} description={"기타등등 이것저것 여러가지"}/>
+    <Pagenation>
+      <ReactPaginate
+        previousLabel={<i className="fas fa-angle-left" />}
+        nextLabel={<i className="fas fa-angle-right" />}
+        breakLabel={<i className="fa fa-ellipsis-h" />}
+        forcePage={pageContext.index - 1}
+        breakClassName={'break-me'}
+        pageCount={pageContext.pageCount}
+        marginPagesDisplayed={2}
+        pageRangeDisplayed={5}
+        onPageChange={handlePageClick}
+        containerClassName={'pagination'}
+        subContainerClassName={'pages pagination'}
+        activeClassName={'active'}
+      />
+    </Pagenation>
   </Layout>
   )
 }
