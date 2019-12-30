@@ -1,4 +1,5 @@
 import React, { Component } from 'react'
+import Layout from '../components/Layout'
 
 class PostTemplate extends Component {
   constructor(props) {
@@ -7,10 +8,14 @@ class PostTemplate extends Component {
   }
 
   render() {
-    const { markdownRemark } = this.props.data
-    console.log(`this.props.data`, this.props.data)
+    const { title = {}, tags = {}, body = {}} = this.props.data.contentfulPost
+    const { childMarkdownRemark = {} } = body
 
-    return <div dangerouslySetInnerHTML={{ __html: markdownRemark.html }} />
+    return (
+      <Layout title={title}>
+        <div dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
+      </Layout>
+    )
   }
 }
 

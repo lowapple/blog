@@ -18,6 +18,7 @@ const handlePageClick = data => {
 // 인덱스 페이지 렌더링
 const IndexPage = ({ pageContext }) => {
   console.log(pageContext)
+  // 포스트 리스트
   const posts = pageContext.group
   const postsContent = posts => posts.map(post => (
     <PostElement post={post} key={post.node.id} />
@@ -36,7 +37,7 @@ const IndexPage = ({ pageContext }) => {
         }
         `}
         render={sitemap => (
-        <Layout>
+        <Layout title={sitemap.site.siteMetadata.title}>
           <SEO title="Home"/>
           <PageHeader 
             title={sitemap.site.siteMetadata.title} 
