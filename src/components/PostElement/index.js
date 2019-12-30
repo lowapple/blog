@@ -8,15 +8,15 @@ const PostElement = ({post}) => {
   // Key
   var id = post.node.id
   // 링크  
-  var link = post.node.fields.slug
+  var link = post.node.slug
 
   console.log(post)
   return <li><a key={id} className={classNames(styles['default'])} href={link}>
-    <PostDate date={post.node.frontmatter.date}/>
+    <PostDate date={post.node.publishDate}/>
     <PostDescription 
-        title={post.node.frontmatter.title} 
-        description={post.node.frontmatter.description}
-        tags={post.node.frontmatter.tags}/>
+        title={post.node.title} 
+        description={post.node.metaDescription}
+        tags={post.node.tags}/>
     
   </a></li>
 }

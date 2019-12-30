@@ -8,3 +8,4 @@
 require("prismjs/plugins/command-line/prism-command-line.css")
 // require('./src/styles/prism.css')
 require('./src/styles/fonts.css');
+require('./src/styles/styles.scss')

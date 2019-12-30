@@ -1,0 +1,49 @@
+.default {
+    margin: auto;;
+    position: relative;
+    display: block;
+    & > ul {
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      list-style: none;
+      list-style-type: none;
+      padding: 0;
+      margin: 0;
+    }
+    & > ul > li {
+      margin: 0;
+      font-size: 0.8rem;
+      background-color: #fff;
+      line-height: 1;
+      &:hover {
+        cursor: pointer;
+      }
+      &.active {
+        font-weight: 900;
+        a {
+          position: relative;
+          color: #76b835;
+          &::after {
+            content: ' ';
+            width: 50%;
+            top: 80%;
+            height: 2px;
+            background-color: #76b835;
+            border-radius: 2px;
+          }
+        }
+      }
+      &.previous,
+      &.next {
+      }
+      & > a {
+        display: block;
+        padding: 0.7rem;
+        outline: none;
+        &:hover {
+          color: #76b835;
+        }
+      }
+    }
+}

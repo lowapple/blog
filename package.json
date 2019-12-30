@@ -8,6 +8,7 @@
     "classnames": "^2.2.6",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.1.0",
+    "gatsby-paginate": "^1.1.1",
     "gatsby-plugin-feed": "^2.2.1",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.1.30",
@@ -21,6 +22,7 @@
     "gatsby-remark-embed-snippet": "^4.1.14",
     "gatsby-remark-emoji": "^0.0.3",
     "gatsby-remark-prismjs": "^3.3.22",
+    "gatsby-source-contentful": "^2.1.71",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-remark": "^2.6.33",
     "gatsby-transformer-sharp": "^2.1.19",
@@ -29,9 +31,11 @@
     "prop-types": "^15.7.2",
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
-    "react-helmet": "^5.2.1"
+    "react-helmet": "^5.2.1",
+    "react-paginate": "^6.3.2"
   },
   "devDependencies": {
+    "dotenv": "^8.2.0",
     "eslint": "^5.16.0",
     "eslint-plugin-react": "^7.13.0",
     "gh-pages": "^2.1.1",

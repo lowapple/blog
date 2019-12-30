@@ -1,14 +1,14 @@
 import PropTypes from "prop-types"
 import React from "react"
 import { Location } from "@reach/router"
-import Logo from '../Logo'
 import styles from './style.module.scss'
 import classNames from 'classnames'
+import { Link } from "gatsby"
 
-const Header = ({ data }) => (
+const Logo = () => (
   <header className={styles['default']}>
-    <Logo link={'/'} />
+    <Link to='\'>ASD</Link>
   </header>
 )
 
-export default Header
+export default Logo
