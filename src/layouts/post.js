@@ -4,7 +4,7 @@ import { Link, graphql } from "gatsby"
 import DefaultLayout from "../layouts/default"
 import SEO from "../components/seo"
 import { getPostDate } from '../utils'
-import PostTags from "../components/organisms/PostTags"
+import PostTags from "../components/PostTags"
 
 const PostTemplate = ({ data, pageContext }) => {
   const { markdownRemark } = data
@@ -24,7 +24,9 @@ const PostTemplate = ({ data, pageContext }) => {
         <div className="divider" />
         <div dangerouslySetInnerHTML={{ __html: html }} />
       </article>
-      <PostTags tags={frontmatter.tags}/>
+      <div className="tags">
+        <PostTags tags={frontmatter.tags}/>
+      </div>
       <div className="page-navigation code">
         {prev && (
           <Link

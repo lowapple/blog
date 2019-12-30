@@ -1,7 +1,7 @@
 import PropTypes from "prop-types"
 import React from "react"
 import { Location } from "@reach/router"
-import Logo from '../../molecules/Logo'
+import Logo from '../Logo'
 import styles from './style.module.scss'
 import classNames from 'classnames'
 

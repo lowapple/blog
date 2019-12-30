@@ -9,8 +9,8 @@ import React from "react"
 import PropTypes from "prop-types"
 import { StaticQuery, graphql } from "gatsby"
 
-import Header from ".././components/organisms/Header"
-import Footer from ".././components/footer"
+import Header from '../components/Header'
+import Footer from '../components/footer'
 import "../styles/styles.scss"
 
 const DefaultLayout = ({ children }) => (

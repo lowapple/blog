@@ -2,7 +2,7 @@ import { Link } from "gatsby"
 import PropTypes from "prop-types"
 import React from "react"
 import styles from './style.module.scss'
-import ALink from '../../atoms/ALink'
+import ALink from '../ALink'
 
 const Logo = ({ link }) => {
     return <div className={styles['default']}>

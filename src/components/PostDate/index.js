@@ -1,6 +1,5 @@
 import React from "react"
 import classNames from 'classnames'
-import { getArchivePostDate } from "../../../utils"
 import styles from './style.module.scss'
 
 const PostDate = ({ date }) => { 

@@ -4,9 +4,9 @@ import { Link, graphql } from "gatsby"
 import DefaultLayout from "../layouts/default"
 import Image from "../components/image"
 import SEO from "../components/seo"
-import PostElement from '../components/organisms/PostElement'
+import PostElement from '../components/PostElement'
 import { groupBy, getDateYear, getArchivePostDate } from "../utils"
-import PageHeader from '../components/organisms/PageHeader';
+import PageHeader from '../components/PageHeader';
 
 const IndexPage = ({ data }) => {
     // 포스트 리스트 필터
