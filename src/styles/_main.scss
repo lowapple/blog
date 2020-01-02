@@ -8,6 +8,10 @@ html {
   padding: 0;
   height: 100%;
 }
+.tags {
+  max-width: 640px;
+  margin: 0 auto;
+}
 body {
   font-size: 14px;
   line-height: 20px;
@@ -19,12 +23,10 @@ body {
   // font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
   color: #333333;
   padding: 20px;
-  margin: 0;
+  max-width: 640px;
+  margin: 0 auto;
   -webkit-font-smoothing: antialiased;
   -webkit-text-size-adjust: 100%;
-  @media (min-width: 992px) {
-    padding: 35px 50px;
-  }
 }
 h1,
 h2,
@@ -383,7 +385,7 @@ article {
 #content {
   position: relative;
   margin: 0 auto 35px;
-  max-width: 640px;
+  // max-width: 640px;
   text-align: left;
   
 section {
