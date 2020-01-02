@@ -25,30 +25,51 @@ const IndexPage = ({ pageContext }) => {
   ))
 
   return (
-  <Layout>
-    <SEO title="Home"/>
-    <section>
-      <ul>
-        {postsContent(posts)}
-      </ul>
-    </section>
-    <Pagenation>
-      <ReactPaginate
-        previousLabel={<i className="fas fa-angle-left" />}
-        nextLabel={<i className="fas fa-angle-right" />}
-        breakLabel={<i className="fa fa-ellipsis-h" />}
-        forcePage={pageContext.index - 1}
-        breakClassName={'break-me'}
-        pageCount={pageContext.pageCount}
-        marginPagesDisplayed={2}
-        pageRangeDisplayed={5}
-        onPageChange={handlePageClick}
-        containerClassName={'pagination'}
-        subContainerClassName={'pages pagination'}
-        activeClassName={'active'}
-      />
-    </Pagenation>
-  </Layout>
+    <StaticQuery
+        query={graphql`
+        query IndexHeaderQuery {
+          site {
+            metadata {
+              index {
+                title
+                description
+              }
+            }
+          }
+        }
+        `}
+        render={sitemap => {
+          // Index Page 처리
+          return (
+          <Layout>
+            <SEO title="Home"/>
+            <PageHeader 
+              title={sitemap.site.metadata.index.title} 
+              description={sitemap.site.metadata.index.description}/>
+            <section>
+              <ul>
+                {postsContent(posts)}
+              </ul>
+            </section>
+            <Pagenation>
+              <ReactPaginate
+                previousLabel={<i className="fas fa-angle-left" />}
+                nextLabel={<i className="fas fa-angle-right" />}
+                breakLabel={<i className="fa fa-ellipsis-h" />}
+                forcePage={pageContext.index - 1}
+                breakClassName={'break-me'}
+                pageCount={pageContext.pageCount}
+                marginPagesDisplayed={2}
+                pageRangeDisplayed={5}
+                onPageChange={handlePageClick}
+                containerClassName={'pagination'}
+                subContainerClassName={'pages pagination'}
+                activeClassName={'active'}
+              />
+            </Pagenation>
+          </Layout>
+          )
+        }}/>
   )
 }
 
