@@ -10,16 +10,14 @@ const Template = ({ children }) => {
         query {
             site {
                 siteMetadata {
-                    site {
-                        title
-                    }
+                    title
                 }
             }
         }
         `}
         render={sitemap => (
         <>
-            <Header title={sitemap.site.siteMetadata.site.title}/>
+            <Header title={sitemap.site.siteMetadata.title}/>
             <div id="content">
                 {children}
             </div>

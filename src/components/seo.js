@@ -12,8 +12,8 @@ function SEO({ title, description, keywords = [], meta = [], lang }) {
       query={detailsQuery}
       render={data => {
         const metaDescription =
-          description || data.site.siteMetadata.site.description
-        const siteTitle = data.site.siteMetadata.site.title
+          description || data.site.siteMetadata.description
+        const siteTitle = data.site.siteMetadata.title
 
         let metaTags = [
           {
@@ -38,7 +38,7 @@ function SEO({ title, description, keywords = [], meta = [], lang }) {
           },
           {
             name: `twitter:creator`,
-            content: data.site.siteMetadata.site.author,
+            content: data.site.siteMetadata.author,
           },
           {
             name: `twitter:title`,
@@ -111,11 +111,9 @@ const detailsQuery = graphql`
   query SeoQuery {
     site {
       siteMetadata {
-        site {
-          title
-          description
-          author
-        }
+        title
+        description
+        author
       }
     }
   }
