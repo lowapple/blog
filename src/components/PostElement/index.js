@@ -15,7 +15,7 @@ const PostElement = ({post}) => {
     <PostDate date={post.node.publishDate}/>
     <PostDescription 
         title={post.node.title} 
-        description={post.node.metaDescription}
+        description={post.node.description.description}
         tags={post.node.tags}/>
     
   </a></li>

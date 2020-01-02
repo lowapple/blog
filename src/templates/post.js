@@ -79,7 +79,6 @@ class PostTemplate extends Component {
           description={description.description}
         />
         <PostTags tags={tags}/>
-        
         <div dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
         <Disqus config={this.postCommentConfig} />
       </Layout>
@@ -111,7 +110,6 @@ query($slug: String!) {
       childMarkdownRemark {
         timeToRead
         html
-        excerpt(pruneLength: 320)
       }
     }
   }
