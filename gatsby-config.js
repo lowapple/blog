@@ -1,13 +1,27 @@
 require('dotenv').config()
 
+const SITE_TITLE = `Lowapple Thch Blog`
+const SITE_DESCRIPTION = `기타등등 이것저것 기술 블로그`
+const SITE_URL = `https://lowapple.io`
+const SITE_RSS = `/rss.xml`
+const SITE_AUTHOR = `@lowapple`
+const SITE_COPY_RIGHT = `Copyright © lowapple All rights reserved`
+
 module.exports = {
   siteMetadata: {
-    site: {
-      title: 'Lowapple Blog',
-      description: '기타등등 이것저것 기술 블로그',
-      author: `@lowapple`,
-      avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
-      siteUrl: `https://lowapple.io`  
+    title: `${SITE_TITLE}`,
+    description: `${SITE_DESCRIPTION}`,
+    author: `${SITE_AUTHOR}`,
+    avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
+    siteUrl: `${SITE_URL}`  ,
+    rssMetadata: {
+      site_url: `${SITE_URL}`,
+      feed_url: `${SITE_URL}${SITE_RSS}`,
+      title: `${SITE_TITLE}`,
+      description: `${SITE_DESCRIPTION}`,
+      image_url: `${SITE_URL}icons/icon-512x512.png`,
+      author: `${SITE_AUTHOR}`,
+      copyright: `${SITE_COPY_RIGHT}`,
     },
     index: {
       title: '로우애플 기술 블로그',
@@ -33,15 +47,6 @@ module.exports = {
     {
       resolve: `gatsby-transformer-remark`,
       options: {
-        // CommonMark mode (default: true)
-        commonmark: true,
-        // Footnotes mode (default: true)
-        footnotes: true,
-        // Pedantic mode (default: true)
-        pedantic: true,
-        // GitHub Flavored Markdown mode (default: true)
-        gfm: true,
-        // Plugins configs
         plugins: [
           {
             resolve: "gatsby-remark-embed-gist"
@@ -50,12 +55,9 @@ module.exports = {
             resolve: `gatsby-remark-prismjs`,
           },
           {
-            resolve: 'gatsby-remark-emoji', // <-- this adds emoji
+            resolve: 'gatsby-remark-emoji',
             options: {
-              // default emojiConversion --> shortnameToUnicode
               emojiConversion: 'shortnameToUnicode',
-              // when true, matches ASCII characters (in unicodeToImage and shortnameToImage)
-              // e.g. ;) --> 😉
               ascii: false,
             }
           }
@@ -74,14 +76,90 @@ module.exports = {
     {
       resolve: `gatsby-source-filesystem`,
       options: {
+        name: `pages`,
+        path: `${__dirname}/src/pages/`,
+      },
+    },
+    {
+      resolve: `gatsby-source-filesystem`,
+      options: {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
     },
     `gatsby-plugin-sitemap`,
+    {
+      resolve: 'gatsby-plugin-google-analytics',
+      options: {
+        trackingId: process.env.GOOGLE_ANALYTICS_ID,
+      },
+    },
     `gatsby-plugin-netlify`,
     `gatsby-transformer-sharp`,
-    `gatsby-plugin-feed`,
+    {
+      resolve: `gatsby-plugin-feed`,
+      options: {
+        query: `
+        {
+          site {
+            siteMetadata {
+              rssMetadata {
+                site_url
+                feed_url
+                title
+                description
+                image_url
+                author
+                copyright
+              }
+            }
+          }
+        }
+        `,
+        feeds: [
+          {
+            serialize: ({ query: { site, allContentfulBlogPost } }) => {
+              return allContentfulBlogPost.edges.map(edge => ({
+                title: edge.node.title,
+                description: edge.node.description.description,
+                date: edge.node.publishDate,
+                author: site.siteMetadata.rssMetadata.author,
+                url: `${site.siteMetadata.rssMetadata.site_url}/posts/${
+                  edge.node.slug
+                }`,
+                guid: `${site.siteMetadata.rssMetadata.site_url}/posts/${
+                  edge.node.slug
+                }`,
+                custom_elements: [{ 'content:encoded': edge.node.body.childMarkdownRemark.html }],
+              }))
+            },
+            query: `
+            {
+              allContentfulBlogPost(sort: {fields: [publishDate], order: DESC}) {
+                edges {
+                  node {
+                    slug
+                    publishDate
+                    id
+                    title
+                    description {
+                      description
+                    }
+                    body {
+                      childMarkdownRemark {
+                        html
+                      }
+                    }
+                  }
+                }
+              }
+            }
+            `,
+            output: `${SITE_RSS}`
+          }
+        ]
+      }
+    },
     `gatsby-plugin-sharp`,
     {
       resolve: `gatsby-source-filesystem`,

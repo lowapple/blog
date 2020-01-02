@@ -29,7 +29,7 @@ class PostTemplate extends Component {
 
   // 포스트 URL
   getPostURL() {
-    const baseUrl = this.props.data.site.siteMetadata.site.siteUrl
+    const baseUrl = this.props.data.site.siteMetadata.siteUrl
     const path = this.props.data.contentfulBlogPost.slug
     return `${baseUrl}/posts/${path}`
   }
@@ -69,7 +69,7 @@ class PostTemplate extends Component {
           description={description.description}
           keywords={tags}
           meta={[
-            { name: 'author', content: siteMetadata.site.author },
+            { name: 'author', content: siteMetadata.author },
             { name: 'description', content: description.description },
             { itemProp: 'name', content: title },
             { itemProp: 'description', content: description.description },
@@ -115,9 +115,7 @@ export const pageQuery = graphql`
 query($slug: String!) {
   site {
     siteMetadata {
-      site {
-        siteUrl
-      }
+      siteUrl
     }
   }
   contentfulBlogPost(slug: { eq: $slug }) {
