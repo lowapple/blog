@@ -27,9 +27,9 @@ const IndexPage = ({ pageContext }) => {
   return (
     <StaticQuery
         query={graphql`
-        query IndexHeaderQuery {
+        query {
           site {
-            metadata {
+            siteMetadata {
               index {
                 title
                 description
@@ -44,8 +44,8 @@ const IndexPage = ({ pageContext }) => {
           <Layout>
             <SEO title="Home"/>
             <PageHeader 
-              title={sitemap.site.metadata.index.title} 
-              description={sitemap.site.metadata.index.description}/>
+              title={sitemap.site.siteMetadata.index.title} 
+              description={sitemap.site.siteMetadata.index.description}/>
             <section>
               <ul>
                 {postsContent(posts)}

@@ -1,7 +1,7 @@
 require('dotenv').config()
 
 module.exports = {
-  metadata: {
+  siteMetadata: {
     site: {
       title: 'Lowapple Blog',
       description: '기타등등 이것저것 기술 블로그',
@@ -62,7 +62,15 @@ module.exports = {
         ],
       },
     },
-    `gatsby-plugin-react-helmet`,
+    {
+      resolve: `gatsby-plugin-disqus`,
+      options: {
+        shortname: 'lowappleblog'
+      }
+    },
+    {
+      resolve: `gatsby-plugin-react-helmet`
+    },
     {
       resolve: `gatsby-source-filesystem`,
       options: {

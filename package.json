@@ -5,10 +5,12 @@
   "version": "0.1.0",
   "author": "Kinyanjui Wangonya <kwangonya@gmail.com>",
   "dependencies": {
+    "babel-plugin-styled-components": "^1.10.6",
     "classnames": "^2.2.6",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.1.0",
     "gatsby-paginate": "^1.1.1",
+    "gatsby-plugin-disqus": "^1.1.4",
     "gatsby-plugin-feed": "^2.2.1",
     "gatsby-plugin-manifest": "^2.1.1",
     "gatsby-plugin-netlify": "^2.1.30",
@@ -17,12 +19,13 @@
     "gatsby-plugin-sass": "^2.0.11",
     "gatsby-plugin-sharp": "^2.0.37",
     "gatsby-plugin-sitemap": "^2.2.24",
+    "gatsby-plugin-styled-components": "^3.1.16",
     "gatsby-plugin-web-font-loader": "^1.0.4",
     "gatsby-remark-embed-gist": "^1.1.9",
     "gatsby-remark-embed-snippet": "^4.1.14",
     "gatsby-remark-emoji": "^0.0.3",
     "gatsby-remark-prismjs": "^3.3.22",
-    "gatsby-source-contentful": "^2.1.71",
+    "gatsby-source-contentful": "^2.1.73",
     "gatsby-source-filesystem": "^2.0.37",
     "gatsby-transformer-remark": "^2.6.33",
     "gatsby-transformer-sharp": "^2.1.19",
@@ -32,7 +35,8 @@
     "react": "^16.8.6",
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
-    "react-paginate": "^6.3.2"
+    "react-paginate": "^6.3.2",
+    "styled-components": "^4.4.1"
   },
   "devDependencies": {
     "dotenv": "^8.2.0",

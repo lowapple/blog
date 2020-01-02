@@ -15,7 +15,7 @@ function SEO({ description, lang, meta, title }) {
     graphql`
       query SiteSeoQuery{
         site {
-          metadata {
+          siteMetadata {
             site {
               title
               description
@@ -29,7 +29,7 @@ function SEO({ description, lang, meta, title }) {
     `
   )
 
-  const metaDescription = description || site.metadata.site.description
+  const metaDescription = description || site.siteMetadata.description
 
   return (
     <Helmet
@@ -37,7 +37,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.metadata.site.title}`}
+      titleTemplate={`%s | ${site.siteMetadata.title}`}
       meta={[
         {
           name: `description`,
@@ -61,7 +61,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.metadata.site.author,
+          content: site.siteMetadata.author,
         },
         {
           name: `twitter:title`,
