@@ -4,7 +4,7 @@ import PropTypes from 'prop-types'
 import Helmet from 'react-helmet'
 import { StaticQuery, graphql } from 'gatsby'
 
-export const DEFAULT_KEYWORDS = ['안드로이드', '개발자 블로그', '앱 개발']
+export const DEFAULT_KEYWORDS = ['Android', '안드로이드', '개발', '개발자 블로그']
 
 function SEO({ title, description, keywords = [], meta = [], lang }) {
   return (
@@ -108,7 +108,7 @@ SEO.propTypes = {
 export default SEO
 
 const detailsQuery = graphql`
-  query SeoQuery {
+  query DefaultSEOQuery {
     site {
       siteMetadata {
         title
