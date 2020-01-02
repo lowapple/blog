@@ -3,9 +3,10 @@ import Layout from '../components/Layout'
 import PageHeader from '../components/PageHeader'
 import PostInfo from '../components/PostInfo'
 import PostTags from '../components/PostTags'
-import { getPostRoute } from '../utils/router'
 import Head from '../components/Head'
-import { Disqus, CommentCount } from 'gatsby-plugin-disqus'
+import { Disqus } from 'gatsby-plugin-disqus'
+import SEO from '../components/Seo'
+import { getMainImageFromRemark } from '../utils/getMainImageFromRemark'
 
 class PostTemplate extends Component {
   constructor(props) {
@@ -56,12 +57,34 @@ class PostTemplate extends Component {
   }
 
   render() {
-    const { title = {}, description = {}, publishDateISO = {}, tags = {}, body = {}} = this.props.data.contentfulBlogPost
+    const { title = {}, description = {}, publishDateISO = {}, tags = {}, body = {} } = this.props.data.contentfulBlogPost
     const { childMarkdownRemark = {} } = body
-    console.log(this.props.data)
+    const { siteMetadata = {} } = this.props.data.site
+    const mainImage = getMainImageFromRemark(childMarkdownRemark.html)
 
     return (
       <Layout>
+        <SEO
+          title={title}
+          description={description.description}
+          keywords={tags}
+          meta={[
+            { name: 'author', content: siteMetadata.site.author },
+            { name: 'description', content: description.description },
+            { itemProp: 'name', content: title },
+            { itemProp: 'description', content: description.description },
+            { itemProp: 'image', content: mainImage },
+            { property: 'og:type', content: 'article' },
+            { property: 'og:url', content: this.getPostURL() },
+            { property: 'og:title', content: title },
+            { property: 'og:description', content: description.description },
+            { property: 'og:image', content: mainImage },
+            { name: 'twitter:card', content: 'summary_large_imag' },
+            { name: 'twitter:title', content: title },
+            { name: 'twitter:description', content: description.description },
+            { name: 'twitter:image', content: mainImage },
+          ]}
+        />
         <Head>
           <link rel="canonical" href={this.getPostURL()} />
           <script

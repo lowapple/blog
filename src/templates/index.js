@@ -1,6 +1,6 @@
 import React from "react"
 import { Link, graphql, StaticQuery } from "gatsby"
-import SEO from "../components/seo"
+import SEO from "../components/SEO"
 import PageHeader from '../components/PageHeader'
 import Layout from '../components/Layout' 
 import ReactPaginate from 'react-paginate'

@@ -1,92 +1,122 @@
-/**
- * SEO component that queries for data with
- *  Gatsby's useStaticQuery React hook
- *
- * See: https://www.gatsbyjs.org/docs/use-static-query/
- */
+import React from 'react'
+import * as R from 'ramda'
+import PropTypes from 'prop-types'
+import Helmet from 'react-helmet'
+import { StaticQuery, graphql } from 'gatsby'
 
-import React from "react"
-import PropTypes from "prop-types"
-import Helmet from "react-helmet"
-import { useStaticQuery, graphql } from "gatsby"
+export const DEFAULT_KEYWORDS = ['안드로이드', '개발자 블로그', '앱 개발']
 
-function SEO({ description, lang, meta, title }) {
-  const { site } = useStaticQuery(
-    graphql`
-      query SiteSeoQuery{
-        site {
-          siteMetadata {
-            site {
-              title
-              description
-              author
-              siteUrl
-              avatar
-            }
-          }
-        }
-      }
-    `
-  )
-
-  const metaDescription = description || site.siteMetadata.description
-
+function SEO({ title, description, keywords = [], meta = [], lang }) {
   return (
-    <Helmet
-      htmlAttributes={{
-        lang,
+    <StaticQuery
+      query={detailsQuery}
+      render={data => {
+        const metaDescription =
+          description || data.site.siteMetadata.site.description
+        const siteTitle = data.site.siteMetadata.site.title
+
+        let metaTags = [
+          {
+            name: `description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:title`,
+            content: title,
+          },
+          {
+            property: `og:description`,
+            content: metaDescription,
+          },
+          {
+            property: `og:type`,
+            content: `website`,
+          },
+          {
+            name: `twitter:card`,
+            content: `summary`,
+          },
+          {
+            name: `twitter:creator`,
+            content: data.site.siteMetadata.site.author,
+          },
+          {
+            name: `twitter:title`,
+            content: title,
+          },
+          {
+            name: `twitter:description`,
+            content: metaDescription,
+          },
+        ]
+
+        // 키워드 추가
+        if (keywords && keywords.length) {
+          metaTags.push({
+            name: `keywords`,
+            content: keywords.concat(DEFAULT_KEYWORDS).join(`, `),
+          })
+        } else {
+          metaTags.push({
+            name: 'keywords',
+            content: DEFAULT_KEYWORDS.join(', '),
+          })
+        }
+
+        // SEO 컴포넌트에 직접 전달받은 메타 태그는 중복을 제거하고 추가한다.
+        if (meta.length > 0) {
+          const metaNamesToAdd = meta.map(m => m.name)
+
+          metaTags = R.concat(
+            // metaTags에서 SEO 컴포넌트에 직접 전달된
+            R.filter(currentMeta =>
+              R.not(R.includes(currentMeta.name, metaNamesToAdd))
+            )(metaTags),
+            meta
+          )
+        }
+
+        return (
+          <Helmet
+            htmlAttributes={{
+              lang: 'ko',
+            }}
+            title={title || siteTitle}
+            titleTemplate={title ? `%s | ${siteTitle}` : ''}
+            meta={metaTags}
+          />
+        )
       }}
-      title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
-      meta={[
-        {
-          name: `description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:title`,
-          content: title,
-        },
-        {
-          property: `og:description`,
-          content: metaDescription,
-        },
-        {
-          property: `og:type`,
-          content: `website`,
-        },
-        {
-          name: `twitter:card`,
-          content: `summary`,
-        },
-        {
-          name: `twitter:creator`,
-          content: site.siteMetadata.author,
-        },
-        {
-          name: `twitter:title`,
-          content: title,
-        },
-        {
-          name: `twitter:description`,
-          content: metaDescription,
-        },
-      ].concat(meta)}
     />
   )
 }
 
 SEO.defaultProps = {
-  lang: `kr`,
+  lang: `ko`,
   meta: [],
-  description: ``,
+  keywords: [],
 }
 
 SEO.propTypes = {
   description: PropTypes.string,
   lang: PropTypes.string,
-  meta: PropTypes.arrayOf(PropTypes.object),
-  title: PropTypes.string.isRequired,
+  meta: PropTypes.array,
+  keywords: PropTypes.arrayOf(PropTypes.string),
+  title: PropTypes.string,
 }
 
 export default SEO
+
+const detailsQuery = graphql`
+  query SeoQuery {
+    site {
+      siteMetadata {
+        site {
+          title
+          description
+          author
+        }
+      }
+    }
+  }
+`
