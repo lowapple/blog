@@ -5,16 +5,26 @@ import { StaticQuery, graphql } from 'gatsby'
 
 const Template = ({ children }) => {
     return (
+        <StaticQuery
+        query={graphql`
+        query {
+            site {
+                siteMetadata {
+                    site {
+                        title
+                    }
+                }
+            }
+        }
+        `}
+        render={sitemap => (
         <>
-            <Helmet>
-                <meta charSet="utf-8" />
-                <meta name="viewport" content="width=device-width, initial-scale=1" />
-            </Helmet>
-            <Header/>
+            <Header title={sitemap.site.siteMetadata.site.title}/>
             <div id="content">
                 {children}
             </div>
         </>
+        )}/>
     )
 }
 

@@ -5,10 +5,10 @@ import styles from './style.module.scss'
 import classNames from 'classnames'
 import { Link } from "gatsby"
 
-const Logo = () => (
+const Header = ({ title }) => (
   <header className={styles['default']}>
-    <Link to='\'>ASD</Link>
+    <Link to='/'>{title}</Link>
   </header>
 )
 
-export default Logo
+export default Header
