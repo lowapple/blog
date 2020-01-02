@@ -1,12 +1,18 @@
 require('dotenv').config()
 
 module.exports = {
-  siteMetadata: {
-    title: `Lowapple Blog`,
-    description: `기타등등 이것저것 기술 블로그`,
-    author: `@lowapple`,
-    avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
-    siteUrl: `https://lowapple.io`,
+  metadata: {
+    site: {
+      title: 'Lowapple Blog',
+      description: '기타등등 이것저것 기술 블로그',
+      author: `@lowapple`,
+      avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
+      siteUrl: `https://lowapple.io`  
+    },
+    index: {
+      title: '로우애플 기술 블로그',
+      description: '기타등등 이것저것 기술 블로그'
+    }
   },
   plugins: [
     {

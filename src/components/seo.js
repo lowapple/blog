@@ -13,21 +13,23 @@ import { useStaticQuery, graphql } from "gatsby"
 function SEO({ description, lang, meta, title }) {
   const { site } = useStaticQuery(
     graphql`
-      query {
+      query SiteSeoQuery{
         site {
-          siteMetadata {
-            title
-            description
-            author
-            siteUrl
-            avatar
+          metadata {
+            site {
+              title
+              description
+              author
+              siteUrl
+              avatar
+            }
           }
         }
       }
     `
   )
 
-  const metaDescription = description || site.siteMetadata.description
+  const metaDescription = description || site.metadata.site.description
 
   return (
     <Helmet
@@ -35,7 +37,7 @@ function SEO({ description, lang, meta, title }) {
         lang,
       }}
       title={title}
-      titleTemplate={`%s | ${site.siteMetadata.title}`}
+      titleTemplate={`%s | ${site.metadata.site.title}`}
       meta={[
         {
           name: `description`,
@@ -59,7 +61,7 @@ function SEO({ description, lang, meta, title }) {
         },
         {
           name: `twitter:creator`,
-          content: site.siteMetadata.author,
+          content: site.metadata.site.author,
         },
         {
           name: `twitter:title`,

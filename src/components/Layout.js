@@ -7,13 +7,14 @@ const Template = ({ children }) => {
     return (
         <StaticQuery
         query={graphql`
-        query Header {
+        query SiteHeader {
             site {
-            siteMetadata {
-              title
-              description
+                metadata {
+                    site {
+                        title
+                    }
+                }
             }
-          }
         }
         `}
         render={sitemap => (
@@ -22,7 +23,7 @@ const Template = ({ children }) => {
                 <meta charSet="utf-8" />
                 <meta name="viewport" content="width=device-width, initial-scale=1" />
             </Helmet>
-            <Header title={sitemap.site.siteMetadata.title}/>
+            <Header title={sitemap.site.metadata.site.title}/>
             <div id="content">
                 {children}
             </div>

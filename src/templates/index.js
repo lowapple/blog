@@ -25,7 +25,7 @@ const IndexPage = ({ pageContext }) => {
   ))
 
   return (
-    <Layout>
+  <Layout>
     <SEO title="Home"/>
     <section>
       <ul>
