@@ -5,7 +5,7 @@ import PostInfo from '../components/PostInfo'
 import PostTags from '../components/PostTags'
 import Head from '../components/Head'
 import { Disqus } from 'gatsby-plugin-disqus'
-import SEO from '../components/Seo'
+import SEO from '../components/SEO'
 import { getMainImageFromRemark } from '../utils/getMainImageFromRemark'
 
 class PostTemplate extends Component {
