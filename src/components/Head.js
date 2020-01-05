@@ -5,7 +5,8 @@ export default function Head({ children }) {
   return (
     <div>
       <Helmet>
-          <link rel="stylesheet" href="/fonts/fonts.css"/>
+          <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-kr.css' rel='stylesheet' type='text/css'/>
+          <link href='//spoqa.github.io/spoqa-han-sans/css/SpoqaHanSans-jp.css' rel='stylesheet' type='text/css'/>
           {children}
       </Helmet>
     </div>

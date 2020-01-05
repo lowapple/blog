@@ -96,13 +96,12 @@ class PostTemplate extends Component {
             <script async src={src} type="text/javascript" key={i} />
           ))}
         </Head>
+        <PageHeader title={title}/>
         <PostInfo date={publishDateISO} timeToRead={childMarkdownRemark.timeToRead}/>
-        <PageHeader 
-          title={title}
-          description={description.description}
-        />
         <PostTags tags={tags}/>
-        <div dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
+        <article>
+          <div id="archive" dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
+        </article>
         <Disqus config={this.postCommentConfig} />
       </Layout>
     )

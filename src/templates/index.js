@@ -46,11 +46,9 @@ const IndexPage = ({ pageContext }) => {
             <PageHeader 
               title={sitemap.site.siteMetadata.index.title} 
               description={sitemap.site.siteMetadata.index.description}/>
-            <section>
-              <ul>
-                {postsContent(posts)}
-              </ul>
-            </section>
+            <ul id="posts">
+              {postsContent(posts)}
+            </ul>
             <Pagenation>
               <ReactPaginate
                 previousLabel={<i className="fas fa-angle-left" />}
