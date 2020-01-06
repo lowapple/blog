@@ -12,7 +12,7 @@ const PostElement = ({post}) => {
 
   console.log(post)
   return <li><a key={id} className={classNames(styles['default'])} href={link}>
-    <PostDate date={post.node.publishDate}/>
+    <PostDate date={post.node.publishDateISO}/>
     <PostDescription 
         title={post.node.title} 
         description={post.node.description.description}

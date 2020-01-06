@@ -10,7 +10,7 @@ exports.createPages = ({ graphql, actions }) => {
       edges {
         node {
           slug
-          publishDate
+          publishDateISO: publishDate(formatString: "YYYY-MM-DD")
           id
           title
           description {
