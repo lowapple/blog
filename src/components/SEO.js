@@ -74,8 +74,6 @@ function SEO({ title, description, keywords = [], meta = [], lang }) {
           )
         }
 
-        console.log(metaTags)
-
         return (
           <Helmet
             htmlAttributes={{
