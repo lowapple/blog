@@ -11,34 +11,16 @@ function SEO({ title, description, keywords = [], meta = [], lang }) {
     <StaticQuery
       query={detailsQuery}
       render={data => {
-        const metaDescription =
-          description || data.site.siteMetadata.description
-        const siteTitle = data.site.siteMetadata.title
+        const blogTitle = data.site.siteMetadata.title
 
         let metaTags = [
-          {
-            name: `description`,
-            content: metaDescription,
-          },
-          {
-            property: `og:title`,
-            content: title,
-          },
-          {
-            property: `og:description`,
-            content: metaDescription,
-          },
-          {
-            property: `og:type`,
-            content: `website`,
-          },
           {
             name: `twitter:card`,
             content: `summary`,
           },
           {
-            name: `twitter:creator`,
-            content: data.site.siteMetadata.author,
+            name: `twitter:site`,
+            content: data.site.siteMetadata.author
           },
           {
             name: `twitter:title`,
@@ -46,8 +28,24 @@ function SEO({ title, description, keywords = [], meta = [], lang }) {
           },
           {
             name: `twitter:description`,
-            content: metaDescription,
+            content: description,
           },
+          {
+            property: `og:site_name`,
+            content: blogTitle
+          },
+          {
+            property: `og:title`,
+            content: title,
+          },
+          {
+            property: `og:description`,
+            content: description,
+          },
+          {
+            property: `og:type`,
+            content: `article`
+          }
         ]
 
         // 키워드 추가
@@ -76,13 +74,15 @@ function SEO({ title, description, keywords = [], meta = [], lang }) {
           )
         }
 
+        console.log(metaTags)
+
         return (
           <Helmet
             htmlAttributes={{
               lang: 'ko',
             }}
-            title={title || siteTitle}
-            titleTemplate={title ? `%s | ${siteTitle}` : ''}
+            title={title || blogTitle}
+            titleTemplate={title ? `%s | ${blogTitle}` : ''}
             meta={metaTags}
           />
         )

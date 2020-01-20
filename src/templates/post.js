@@ -65,6 +65,7 @@ class PostTemplate extends Component {
     return (
       <Layout>
         <SEO
+          url={this.getPostURL()}
           title={title}
           description={description.description}
           keywords={tags}
