@@ -19,7 +19,6 @@ module.exports = {
       feed_url: `${SITE_URL}${SITE_RSS}`,
       title: `${SITE_TITLE}`,
       description: `${SITE_DESCRIPTION}`,
-      image_url: `${SITE_URL}/images/icon.png`,
       author: `${SITE_AUTHOR}`,
       copyright: `${SITE_COPY_RIGHT}`,
     },
@@ -84,7 +83,7 @@ module.exports = {
       resolve: `gatsby-source-filesystem`,
       options: {
         name: `images`,
-        path: `${__dirname}/src/images`,
+        path: `${__dirname}/src/static/images`,
       },
     },
     {
@@ -110,7 +109,6 @@ module.exports = {
                 feed_url
                 title
                 description
-                image_url
                 author
                 copyright
               }
@@ -174,13 +172,14 @@ module.exports = {
     {
       resolve: `gatsby-plugin-manifest`,
       options: {
-        name: `the-plain-gatsby-starter`,
-        short_name: `the-plain-gatsby`,
+        name: `${SITE_TITLE}`,
+        short_name: `${SITE_TITLE}`,
+        lang: `kr`,
         start_url: `/`,
         background_color: `#663399`,
         theme_color: `#663399`,
         display: `minimal-ui`,
-        icon: `src/static/images/icon/icon.png`, // This path is relative to the root of the site.
+        icon: `src/images/icon.png`, // This path is relative to the root of the site.
       },
     },
     // this (optional) plugin enables Progressive Web App + Offline functionality
