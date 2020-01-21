@@ -7,10 +7,10 @@ const PostTags = ({ tags }) => {
     // 태그 목록
     const tagsList = tags => 
         tags.map((tag, i) => (
-            <span key={i} className={classNames(styles['default'])}>{tag}</span>
+            <span key={i} className={classNames(styles['tag'])}>{tag}</span>
         ))
 
-    return <p>{tagsList(tags)}</p>
+    return <p className={classNames(styles['wrapper'])}>{tagsList(tags)}</p>
 }
 
 PostTags.propTypes = {

@@ -2,6 +2,7 @@ import React from 'react'
 import Helmet from 'react-helmet'
 import Header from '../components/Header'
 import { StaticQuery, graphql } from 'gatsby'
+import Head from './Head'
 
 const Template = ({ children }) => {
     return (
@@ -17,10 +18,12 @@ const Template = ({ children }) => {
         `}
         render={sitemap => (
         <>
-            <Header title={sitemap.site.siteMetadata.title}/>
-            <div id="content">
-                {children}
-            </div>
+            <Head>
+                <Header title={sitemap.site.siteMetadata.title}/>
+                <div id="content">
+                    {children}
+                </div>
+            </Head>
         </>
         )}/>
     )

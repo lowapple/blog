@@ -4,7 +4,7 @@ import styles from './style.module.scss'
 
 const PageHeader = ({title, description}) => {
     return  <div className={classNames(styles['default'])}>
-                <h2>{title}</h2>
+                <h1>{title}</h1>
                 <span>{description}</span>
             </div>
 }

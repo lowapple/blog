@@ -7,6 +7,8 @@ import Head from '../components/Head'
 import { Disqus } from 'gatsby-plugin-disqus'
 import SEO from '../components/SEO'
 import { getMainImageFromRemark } from '../utils/getMainImageFromRemark'
+import PostDescriptionBox from '../components/PostDescriptionBox'
+import Divider from '../components/Divider'
 
 class PostTemplate extends Component {
   constructor(props) {
@@ -98,11 +100,13 @@ class PostTemplate extends Component {
           ))}
         </Head>
         <PageHeader title={title}/>
-        <PostInfo date={publishDateISO} timeToRead={childMarkdownRemark.timeToRead}/>
-        <PostTags tags={tags}/>
+        <PostInfo date={publishDateISO}/>
+        <PostDescriptionBox description={description.description}/>
         <article>
           <div id="archive" dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
         </article>
+        <Divider/>
+        <PostTags tags={tags}/>
         <Disqus config={this.postCommentConfig} />
       </Layout>
     )

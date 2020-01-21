@@ -3,12 +3,12 @@ import classNames from 'classnames'
 import styles from './style.module.scss'
 import PostTags from '../PostTags'
 
-const PostDescription = ({ title, description, tags }) => { 
-    return <div className={classNames(styles['default'])}>
-        <h3>{title}</h3>
-        <p>{description}</p>
-        <PostTags tags={tags}/>
-    </div>
+const PostDescription = ({  description }) => { 
+    return (
+        <section className={classNames(styles['default'])}>
+            <p>{description}</p>
+        </section>
+    )
 }
   
 export default PostDescription

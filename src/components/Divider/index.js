@@ -2,11 +2,10 @@ import React from "react"
 import classNames from 'classnames'
 import styles from './style.module.scss'
 
-const PostInfo = ({ date }) => { 
+const Divider = () => {
     return (
-    <time className={classNames(styles['default'])}>{date}</time>
+        <hr className={classNames(styles['default'])}/>
     )
 }
 
-export default PostInfo
-
+export default Divider

@@ -1,7 +1,7 @@
 import React from 'react'
 import Helmet from 'react-helmet'
 
-export default function Head({ children }) {
+const Head = ({ children }) => {
   return (
     <div>
       <Helmet>
@@ -21,8 +21,10 @@ export default function Head({ children }) {
           <link rel="icon" type="image/png" sizes="32x32" href="/images/icons/favicon-32x32.png"/>
           <link rel="icon" type="image/png" sizes="96x96" href="/images/icons/favicon-96x96.png"/>
           <link rel="icon" type="image/png" sizes="16x16" href="/images/icons/favicon-16x16.png"/>
-          {children}
       </Helmet>
+      {children}
     </div>
   )
 }
+
+export default Head

@@ -1,13 +1,4 @@
 .default {
-    transition: 0.3s ease-out;
-    display: inline-block;
-    width: 100%;
-    height: 100%;
-}
-
-.default:hover {
-    transform: translateX(3px);
-    h1, h3 {
-        color: #1094e8;
-    }
+    padding: 40px 0;
+    border-bottom: 1px solid #f2f2f0;
 }

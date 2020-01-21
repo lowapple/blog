@@ -1,16 +1,8 @@
 .default {
-    float: left;
-
-    h3 {
-        color: #000000;
-        font-size: 18px;
-        margin-bottom: 5px;
-        max-width: 500px;
-    }
-    p {
-        color: #828282;
-        font-size: 13px;
-        font-weight: 300;
-        margin-top: -4px;
-    }
+    letter-spacing: -0.02em;
+    font-weight: 300;
+    font-style: normal;
+    font-size: 15px;
+    line-height: 1.5;
+    color: #666665;
 }

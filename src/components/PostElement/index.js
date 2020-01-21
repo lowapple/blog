@@ -3,6 +3,8 @@ import classNames from 'classnames'
 import styles from './style.module.scss'
 import PostDate from '../PostDate'
 import PostDescription from "../PostDescription"
+import PostHeader from '../PostHeader'
+import PostTags from "../PostTags"
 
 const PostElement = ({post}) => { 
   // Key
@@ -11,14 +13,12 @@ const PostElement = ({post}) => {
   var link = `${'/posts/' + post.node.slug}` 
 
   console.log(post)
-  return <li><a key={id} className={classNames(styles['default'])} href={link}>
-    <PostDate date={post.node.publishDateISO}/>
-    <PostDescription 
-        title={post.node.title} 
-        description={post.node.description.description}
-        tags={post.node.tags}/>
-    
-  </a></li>
+  return (
+  <article key={id} className={classNames(styles['default'])}>
+    <PostHeader link={link} title={post.node.title}/>
+    <PostDescription description={post.node.description.description}/>
+  </article>
+  )
 }
 
 export default PostElement
