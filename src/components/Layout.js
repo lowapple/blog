@@ -20,8 +20,12 @@ const Template = ({ children }) => {
         <>
             <Head>
                 <Header title={sitemap.site.siteMetadata.title}/>
-                <div id="content">
-                    {children}
+                <div className="site-content">
+                    <div className="container">
+                        <div className="main-content">
+                            {children}
+                        </div>
+                    </div>
                 </div>
             </Head>
         </>

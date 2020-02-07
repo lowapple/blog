@@ -6,6 +6,7 @@
   "author": "Kinyanjui Wangonya <kwangonya@gmail.com>",
   "dependencies": {
     "babel-plugin-styled-components": "^1.10.6",
+    "bootstrap": "^4.4.1",
     "classnames": "^2.2.6",
     "gatsby": "^2.18.12",
     "gatsby-image": "^2.1.0",
@@ -39,6 +40,7 @@
     "react-dom": "^16.8.6",
     "react-helmet": "^5.2.1",
     "react-paginate": "^6.3.2",
+    "reactstrap": "^8.4.1",
     "styled-components": "^4.4.1"
   },
   "devDependencies": {

@@ -14,10 +14,20 @@ const PostElement = ({post}) => {
 
   console.log(post)
   return (
-  <article key={id} className={classNames(styles['default'])}>
-    <PostHeader link={link} title={post.node.title}/>
-    <PostDescription description={post.node.description.description}/>
-  </article>
+  //<article key={id} className={classNames(styles['default'])}>
+  <div key={id} className="col-lg-3 col-md-6 mb-30px card-group">
+    <div className="card h-100">
+      <div className="card-body">
+        <PostHeader link={link} title={post.node.title}/>
+        <PostDescription description={post.node.description.description}/>
+      </div>
+      <div className="card-footer bg-white">
+        <div className="wrapfooter">
+          <PostDate date={post.node.publishDateISO}/>
+        </div>
+      </div>
+    </div>
+  </div>
   )
 }
 

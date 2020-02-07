@@ -43,10 +43,7 @@ const IndexPage = ({ pageContext }) => {
           return (
           <Layout>
             <SEO title="Home"/>
-            <PageHeader 
-              title={sitemap.site.siteMetadata.index.title} 
-              description={sitemap.site.siteMetadata.index.description}/>
-            <div>
+            <div className="row listrecent">
               {postsContent(posts)}
             </div>
             <Pagenation>
