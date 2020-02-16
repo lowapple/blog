@@ -72,7 +72,7 @@ class PostTemplate extends Component {
     const { title = {}, description = {}, publishDateISO = {}, tags = {}, body = {} } = this.props.data.contentfulBlogPost
     const { childMarkdownRemark = {} } = body
     const { siteMetadata = {} } = this.props.data.site
-    const mainImage = getMainImageFromRemark(childMarkdownRemark.html)
+    const mainImage = this.props.data.contentfulBlogPost.thumbnail.file.url
 
     return (
       <Layout>
