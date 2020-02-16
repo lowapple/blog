@@ -16,6 +16,16 @@ class PostTemplate extends Component {
     this.state = {}
   }
 
+  // 포스트 썸네일
+  postThumbnail() {
+    const visible = this.props.data.contentfulBlogPost.thumbnail != null
+    if (visible) {
+      return <img class="featured-image img-fluid" src={this.props.data.contentfulBlogPost.thumbnail.file.url}/>
+    } else {
+      return null
+    }
+  }
+
   // 포스트 댓글 
   get postCommentConfig() {
     const postId = this.props.data.contentfulBlogPost.id
@@ -99,15 +109,18 @@ class PostTemplate extends Component {
             <script async src={src} type="text/javascript" key={i} />
           ))}
         </Head>
-        <PageHeader title={title}/>
-        <PostInfo date={publishDateISO}/>
-        <PostDescriptionBox description={description.description}/>
-        <article>
-          <div id="archive" dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
-        </article>
-        <Divider/>
-        <PostTags tags={tags}/>
-        <Disqus config={this.postCommentConfig} />
+        <div class="wrapper">
+          <PageHeader title={title}/>
+          <PostInfo date={publishDateISO}/>
+          <PostDescriptionBox description={description.description}/>
+          {this.postThumbnail()}
+          <article>
+            <div id="archive" dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
+          </article>
+          <Divider/>
+          <PostTags tags={tags}/>
+          <Disqus config={this.postCommentConfig} />
+        </div>
       </Layout>
     )
   }
@@ -135,6 +148,11 @@ query($slug: String!) {
       childMarkdownRemark {
         timeToRead
         html
+      }
+    }
+    thumbnail {
+      file {
+        url
       }
     }
   }
