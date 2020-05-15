@@ -25,15 +25,32 @@ exports.createPages = ({ graphql, actions }) => {
         }
       }
     }
+    allContentfulResume {
+      edges {
+        node {
+          body {
+            body
+          }
+          updatedAt
+        }
+      }
+    }
   }
   `).then(data => {
     if (data.errors) {
       throw data.errors
     }
 
-    const posts = data.data.allContentfulBlogPost.edges
+    /* RESUME */
+    const resume = data.data.allContentfulResume.edges[0]
+    createPage({
+      path: `resume`,
+      component:  path.resolve(`./src/templates/resume.js`),
+      context: {},
+    })
 
-    // 인덱스 페이지 생성
+    /* 인덱스 페이지 생성 */
+    const posts = data.data.allContentfulBlogPost.edges
     createPaginatedPages({
       edges: posts,
       createPage: createPage,
@@ -42,9 +59,8 @@ exports.createPages = ({ graphql, actions }) => {
       pathPrefix: '', // This is optional and defaults to an empty string if not used
       context: {}, // This is optional and defaults to an empty object if not used
     })
- 
 
-    // 포스트 페이지 생성
+    /* 포스트 페이지 생성 */
     posts.forEach((edge, i) => {
       const prev = i === 0 ? null : posts[i - 1].node
       const next = i === posts.length - 1 ? null : posts[i + 1].node
