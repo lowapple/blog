@@ -23,11 +23,10 @@ const Template = ({ children }) => {
         <>
             <Head>
                 <Header metadata={sitemap.site.siteMetadata}/>
-                <div className="site-content">
-                    <div className="container">
-                        <div className="main-content">
-                            {children}
-                        </div>
+                <div className="page-content">
+                    <div className="wrapper">
+                        <br/>
+                        {children}
                     </div>
                 </div>
             </Head>
