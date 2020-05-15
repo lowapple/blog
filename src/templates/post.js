@@ -152,11 +152,6 @@ query($slug: String!) {
         html
       }
     }
-    thumbnail {
-      file {
-        url
-      }
-    }
   }
 }
 `

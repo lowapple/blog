@@ -10,6 +10,16 @@ const SITE_COPY_RIGHT = `Copyright © lowapple All rights reserved`
 module.exports = {
   siteMetadata: {
     title: `${SITE_TITLE}`,
+    pages: [
+      {
+        title: '전체',
+        href: '/'
+      },
+      {
+        title: 'RESUME',
+        href: '/resume'
+      }
+    ],
     description: `${SITE_DESCRIPTION}`,
     author: `${SITE_AUTHOR}`,
     avatar: `https://avatars2.githubusercontent.com/u/26740046?s=460&v=4`,
