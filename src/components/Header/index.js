@@ -19,7 +19,7 @@ class Header extends Component {
     const locationPath = window.location.pathname
     return (
       <header className={cx('header')}>
-        <div className='container'>
+        <div className={cx('container')}>
           <div className={cx('nav')}>
             {
               this.metadata.pages.map((page, i) => {

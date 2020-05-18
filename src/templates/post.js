@@ -116,6 +116,7 @@ class PostTemplate extends Component {
           <PostInfo date={publishDateISO}/>
           <PostDescriptionBox description={description.description}/>
           {this.postThumbnail()}
+          <br/>
           <article>
             <div id="archive" dangerouslySetInnerHTML={{ __html: childMarkdownRemark.html }} />
           </article>
