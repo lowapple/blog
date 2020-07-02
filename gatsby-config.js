@@ -86,20 +86,6 @@ module.exports = {
       resolve: `gatsby-plugin-react-helmet`
     },
     {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
-      },
-    },
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `images`,
-        path: `${__dirname}/src/static/images`,
-      },
-    },
-    {
       resolve: `gatsby-plugin-sitemap`,
     },
     {
@@ -172,14 +158,6 @@ module.exports = {
           }
         ]
       }
-    },
-    `gatsby-plugin-sharp`,
-    {
-      resolve: `gatsby-source-filesystem`,
-      options: {
-        name: `pages`,
-        path: `${__dirname}/src/pages/`,
-      },
     },
     `gatsby-plugin-sass`,
     {

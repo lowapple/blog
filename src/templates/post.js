@@ -9,6 +9,7 @@ import SEO from '../components/SEO'
 import { getMainImageFromRemark } from '../utils/getMainImageFromRemark'
 import PostDescriptionBox from '../components/PostDescriptionBox'
 import Divider from '../components/Divider'
+import { graphql } from 'gatsby'
 
 class PostTemplate extends Component {
   constructor(props) {
@@ -131,7 +132,7 @@ class PostTemplate extends Component {
 
 export default PostTemplate
 
-export const pageQuery = graphql`
+export const pageQuery = graphql` 
 query($slug: String!) {
   site {
     siteMetadata {
