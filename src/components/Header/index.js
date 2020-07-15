@@ -15,15 +15,18 @@ class Header extends Component {
     this.metadata = props.metadata
   }
 
+  componentDidMount() {
+    this.locationPath = window.location.pathname
+  }
+
   render() {
-    const locationPath = window.location.pathname
     return (
       <header className={cx('header')}>
         <div className={cx('container')}>
           <div className={cx('nav')}>
             {
               this.metadata.pages.map((page, i) => {
-                if (locationPath != page.href) {
+                if (this.locationPath != page.href) {
                   return <li key={i}><a href={page.href}>{page.title}</a></li>  
                 } else {
                   return <span key={i}><li><a href={page.href}>{page.title}</a></li></span>
