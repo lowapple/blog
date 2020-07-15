@@ -11,7 +11,10 @@ const Template = ({ children }) => {
         query {
             site {
                 siteMetadata {
-                    title
+                    pages {
+                        title
+                        href
+                    }
                 }
             }
         }
@@ -19,12 +22,11 @@ const Template = ({ children }) => {
         render={sitemap => (
         <>
             <Head>
-                <Header title={sitemap.site.siteMetadata.title}/>
-                <div className="site-content">
-                    <div className="container">
-                        <div className="main-content">
-                            {children}
-                        </div>
+                <Header metadata={sitemap.site.siteMetadata}/>
+                <div className="page-content">
+                    <div className="wrapper">
+                        <br/>
+                        {children}
                     </div>
                 </div>
             </Head>

@@ -1,13 +1,17 @@
 import React from "react"
-import classNames from 'classnames'
-import styles from './style.module.scss'
 import PostDate from '../PostDate'
+import PostTags from '../PostTags'
 import PostDescription from "../PostDescription"
 import PostHeader from '../PostHeader'
+import classNames from 'classnames/bind'
+import styles from './style.module.scss'
+
+const cx = classNames.bind(styles);
 
 const PostElement = ({post}) => { 
   // Key
   var id = post.node.id
+  const title = post.node.title
   // 링크  
   var link = `${'/posts/' + post.node.slug}` 
   // 썸네일 이미지 
@@ -15,7 +19,7 @@ const PostElement = ({post}) => {
     const visible = post.node.thumbnail != null
     if (visible) {
       return (
-        <div class='card-thumbnail'>
+        <div className='card-thumbnail'>
           <a href={link}>
             <img className="img-fluid" src={post.node.thumbnail.file.url}></img>
           </a>
@@ -25,22 +29,17 @@ const PostElement = ({post}) => {
       return null
     }
   }
-
+  console.log(post.node)
   return (
-  <div key={id} className="col-lg-3 col-md-6 mb-30px card-group">
-    <div className="card h-100">
+
+    <li>
+      <h3 className={cx('title')}><a href={link}>{title}</a></h3>
+      {/* <PostTags tags={post.node.tags}/> */}
+      <PostDate date={post.node.publishDateISO}/>
+      <hr id="line"/>
+      <p className={cx('content')}>{post.node.description.description}</p>
       { cardThumbnail() }
-      <div className="card-body">
-        <PostHeader link={link} title={post.node.title}/>
-        <PostDescription description={post.node.description.description}/>
-      </div>
-      <div className="card-footer bg-white">
-        <div className="wrapfooter">
-          <PostDate date={post.node.publishDateISO}/>
-        </div>
-      </div>
-    </div>
-  </div>
+    </li>
   )
 }
 

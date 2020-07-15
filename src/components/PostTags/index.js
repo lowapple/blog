@@ -1,16 +1,23 @@
 import React from "react"
-import classNames from 'classnames'
+import classNames from 'classnames/bind'
 import styles from './style.module.scss'
 import PropTypes from "prop-types"
 
+const cx = classNames.bind(styles);
+
 const PostTags = ({ tags }) => { 
     // 태그 목록
-    const tagsList = tags => 
-        tags.map((tag, i) => (
-            <span key={i} className={classNames(styles['tag'])}>{tag}</span>
-        ))
+    const Tags = tags => tags
+        .map((tag, i) => <a className={cx('tag')} key={i} target="_blank">{tag}</a>)
 
-    return <p className={classNames(styles['wrapper'])}>{tagsList(tags)}</p>
+    return (
+        <div className={cx('tags')}>
+            {
+                Tags(tags)
+            }
+        </div>
+    )
+    // return <p className={classNames(styles['wrapper'])}>{tagsList(tags)}</p>
 }
 
 PostTags.propTypes = {

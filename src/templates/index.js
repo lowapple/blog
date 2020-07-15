@@ -20,8 +20,8 @@ const IndexPage = ({ pageContext }) => {
   console.log(pageContext)
   // 포스트 리스트
   const posts = pageContext.group
-  const postsContent = posts => posts.map(post => (
-    <PostElement post={post} key={post.node.id} />
+  const PostsContent = posts => posts.map(post => (
+    <PostElement post={post} key={post.node.id}/>
   ))
 
   return (
@@ -43,25 +43,29 @@ const IndexPage = ({ pageContext }) => {
           return (
           <Layout>
             <SEO title="Home"/>
-            <div className="row listrecent">
-              {postsContent(posts)}
-            </div>
-            <Pagenation>
-              <ReactPaginate
-                previousLabel={<i className="fas fa-angle-left" />}
-                nextLabel={<i className="fas fa-angle-right" />}
-                breakLabel={<i className="fa fa-ellipsis-h" />}
-                forcePage={pageContext.index - 1}
-                breakClassName={'break-me'}
-                pageCount={pageContext.pageCount}
-                marginPagesDisplayed={2}
-                pageRangeDisplayed={5}
-                onPageChange={handlePageClick}
-                containerClassName={'pagination'}
-                subContainerClassName={'pages pagination'}
-                activeClassName={'active'}
-              />
-            </Pagenation>
+            <article>
+              <div>
+                <ul className="posts">
+                  {PostsContent(posts)}
+                </ul>
+              </div>
+              <Pagenation>
+                <ReactPaginate
+                  previousLabel={<i className="fas fa-angle-left" />}
+                  nextLabel={<i className="fas fa-angle-right" />}
+                  breakLabel={<i className="fa fa-ellipsis-h" />}
+                  forcePage={pageContext.index - 1}
+                  breakClassName={'break-me'}
+                  pageCount={pageContext.pageCount}
+                  marginPagesDisplayed={2}
+                  pageRangeDisplayed={5}
+                  onPageChange={handlePageClick}
+                  containerClassName={'pagination'}
+                  subContainerClassName={'pages pagination'}
+                  activeClassName={'active'}
+                />
+              </Pagenation>
+            </article>
           </Layout>
           )
         }}/>
